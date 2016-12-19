@@ -1,13 +1,13 @@
 <template>
-  <component :value="value" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'">
+  <component :value="value" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'" :form-name="formName">
     <slot></slot>
   </component>
 </template>
 
 <script>
 import Flatpickr from 'flatpickr'
-import SingleInput from './SingleInput'
-import WrapperInput from './WrapperInput'
+import SingleInput from './SingleInput.vue'
+import WrapperInput from './WrapperInput.vue'
 
 function Datepicker (selector, config, l10n) {
   this.l10n = Object.assign({}, Flatpickr.prototype.l10n, l10n)
@@ -24,6 +24,7 @@ export default {
 
   props: {
     alignment: String,
+    inputName: String,
     config: {
       type: Object,
       default: () => ({})

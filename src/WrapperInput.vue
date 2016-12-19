@@ -1,6 +1,6 @@
 <template>
   <p class="control has-addons flatpickr" data-wrap="true" data-clickOpens="false" :class="{ [`has-addons-${alignment}`]: alignment }">
-    <input class="input" :class="inputClass" type="text" :placeholder="placeholder" :readonly="readonly" v-model="value" data-input/>
+    <input :name="formName" class="input" :class="inputClass" type="text" :placeholder="placeholder" :readonly="readonly" v-model="value" data-input/>
     <slot></slot>
   </p>
 </template>
@@ -9,6 +9,7 @@
 export default {
   props: {
     alignment: String,
+    formName: String,
     config: {
       type: Object,
       default: () => ({})
